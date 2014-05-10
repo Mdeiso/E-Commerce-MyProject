@@ -1,0 +1,13 @@
+<h1>Your Catalog</h1>
+<% for product in @products -%>
+<div class = "entry">
+	<%= image_tag(product.image_url) %>
+	<h3><%=h product.title %></h3>
+	<%= product.description %>
+	<span class= "price"><%= sprintf("$%0.02f", product.price) %></span>
+	<!--<%= button_to "Add to Cart", :action => :add_to_cart, :id => product %>
+	<%= button_to "Add to Cart", :action => :add, :id => product %>-->
+	<%= button_to "Add to Cart" , :action => :add_to_cart, :id => product %>
+</div>
+<% end %>
+

@@ -1,0 +1,25 @@
+<!--<h1>Your List of Items In cart</h1>
+<ul>
+	<% for item in @cart.items %>
+	<li><%=h item.title %></li>
+	
+	<% end %>
+</ul>
+
+<%= button_to "Empty cart" , :action => :empty_cart %>-->
+<div class="cart-title">Your Cart</div>
+<table>
+<% for cart_item in @cart.items %>
+<tr>
+<td><%= cart_item.title %>&times;</td>
+<td><%= h(cart_item.title) %></td>
+<td class="item-price"><%= number_to_currency(cart_item.price) %></td>
+</tr>
+<% end %>
+<tr class="total-line">
+<td colspan="2">Total</td>
+<td class="total-cell"><%= number_to_currency(@cart.total_price) %></td>
+</tr>
+</table>
+<%= button_to "Empty cart" , :action => :empty_cart %>
+
